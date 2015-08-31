@@ -14,5 +14,5 @@ For those interested, it is telling us to create an *object variable* that is cr
 data = fs.readFileSync('data.csv').toString()
 ```
 
-This loads the entire contents of a file called `data.csv`, converts it into a string and loads it into a variable `data`.
+This loads the entire contents of a file called `data.csv`, converts it into a single string and loads it into a variable `data`.
 

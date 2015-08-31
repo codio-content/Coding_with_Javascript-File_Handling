@@ -1,10 +1,3 @@
-{Run the code}(/home/codio/workspace/ch-write.sh)
-
-{Check It!|assessment}(test-808628205)
-
-|||guidance
-### Solution
-```javascript
 // First, create a 2D array
 input0 = [ ['Mary had a little lamb', 24], ['This, that and the other', 14] ]
 
@@ -53,6 +46,3 @@ for ( i=0, str=''; i < input0.length; i++ ) {
 fs = require('fs')
 fs.writeFile("data.csv", str)
 output('Done')
-
-```
-|||

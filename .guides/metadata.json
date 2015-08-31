@@ -84,7 +84,7 @@
      "action": "close"
     },
     {
-     "path": "data.csv",
+     "path": "1-intro/data.csv",
      "panel": 0,
      "action": "open"
     }
@@ -159,6 +159,11 @@
      "action": "close"
     },
     {
+     "path": "1-intro/write-demo.csv",
+     "panel": 0,
+     "action": "open"
+    },
+    {
      "path": "1-intro/write.js",
      "panel": 0,
      "action": "open"
@@ -201,8 +206,10 @@
      "action": "open"
     }
    ],
-   "layout": "",
-   "path": [],
+   "layout": "2-panels-tree",
+   "path": [
+    "challenge1"
+   ],
    "type": "markdown",
    "content-file": ".guides/content/Read-strings-with-commas-4238.md",
    "chapter": false,
@@ -211,10 +218,23 @@
   {
    "id": "69fc813d-535e-a9f2-48eb-c5bb2c69184",
    "title": "Write escape sequence",
-   "files": [],
-   "path": [],
+   "files": [
+    {
+     "path": "#tabs",
+     "action": "close"
+    },
+    {
+     "path": "challenge2/write-escaped.js",
+     "panel": 0,
+     "action": "open"
+    }
+   ],
+   "layout": "2-panels-tree",
+   "path": [
+    "challenge2"
+   ],
    "type": "markdown",
-   "content-file": ".guides/content/New-Section-13-69fc.md",
+   "content-file": ".guides/content/Write-escape-sequence-69fc.md",
    "chapter": false,
    "reset": []
   }

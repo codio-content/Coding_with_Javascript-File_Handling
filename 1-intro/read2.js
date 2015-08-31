@@ -13,7 +13,7 @@ rows = data.split('\n')
 console.log('INDIVIDUAL RAW ROWS')
 console.log(rows)
 
-// Now process the rows array
+// Now process the rows array into a 2D array
 for ( i=0, cols = []; i<rows.length; i++, cols = [] ) {
   cols = rows[i].split(',')
   rows[i] = cols

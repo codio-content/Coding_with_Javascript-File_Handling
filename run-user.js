@@ -16,6 +16,7 @@ var scope = {
   output: function(val) {
     console.log(val);
   },
+  require: require,
   console: {
     log: console.log.bind(console)
   }
