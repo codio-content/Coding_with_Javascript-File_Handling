@@ -1,4 +1,4 @@
-This data can be nicely stored in a file. The file on the left shows an example of our data being stored.
+This data can be nicely stored in a file. The file on the left shows an example of our data being stored in *CSV* format.
 
 ## CSV format
 Do you see how the data is stored? Each field is separated from the next one by a `,`. 

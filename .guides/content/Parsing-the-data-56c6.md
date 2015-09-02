@@ -1,10 +1,18 @@
-Now we have our data fully loaded, we need to *parse* it into a proper Javascript array.
+Having this sort of data in a single string is not much use, however. 
 
-Parse means 'to split up data based on some rules'.
+We need to *parse* it into a proper Javascript array. Parse means *to split up data based on some rules*.
 
 {Run the code}(/home/codio/workspace/read2.sh)
 
 ## Making use of array.split()
+
+Here's a reminder of our file data.
+
+```javascript
+Alice,23,Blue,Audi
+Tariq,18,Red,Mini
+Bob,31,Green,Renault
+```
 
 ### Rows
 We now see a really useful application of the `array.split()` function. 

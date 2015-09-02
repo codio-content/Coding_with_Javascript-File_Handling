@@ -66,9 +66,41 @@
    ]
   },
   {
+   "id": "34b0e379-e27c-77dc-e6d7-1b5be29ce8e",
+   "title": "A text file",
+   "files": [
+    {
+     "path": "#tabs",
+     "action": "close"
+    },
+    {
+     "path": "1-intro/poem.js",
+     "panel": 0,
+     "action": "open"
+    },
+    {
+     "path": "1-intro/poem.txt",
+     "panel": 1,
+     "action": "open"
+    }
+   ],
+   "layout": "3-cell",
+   "path": [],
+   "type": "markdown",
+   "content-file": ".guides/content/A-text-file-34b0.md",
+   "chapter": false,
+   "reset": []
+  },
+  {
    "id": "e8432617-e7c8-526a-a550-ff0cca2ffc7",
    "title": "Rows and columns",
-   "files": [],
+   "files": [
+    {
+     "path": "#tabs",
+     "action": "close"
+    }
+   ],
+   "layout": "1-panel",
    "path": [],
    "type": "markdown",
    "content-file": ".guides/content/Rows-and-columns-e843.md",
@@ -110,9 +142,14 @@
      "path": "1-intro/read.js",
      "panel": 0,
      "action": "open"
+    },
+    {
+     "path": "1-intro/data.csv",
+     "panel": 1,
+     "action": "open"
     }
    ],
-   "layout": "",
+   "layout": "3-cell",
    "path": [],
    "type": "markdown",
    "content-file": ".guides/content/Reading-a-file-72f5.md",
@@ -143,7 +180,7 @@
      "action": "open"
     }
    ],
-   "layout": "",
+   "layout": "2-panels",
    "path": [],
    "type": "markdown",
    "content-file": ".guides/content/Parsing-the-data-56c6.md",
@@ -244,7 +281,7 @@
    "files": [],
    "path": [],
    "type": "markdown",
-   "content-file": ".guides/content/New-Section-14-36a9.md",
+   "content-file": ".guides/content/All-done---36a9.md",
    "chapter": false,
    "reset": []
   }
