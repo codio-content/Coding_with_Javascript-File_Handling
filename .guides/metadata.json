@@ -9,7 +9,7 @@
      "action": "close"
     }
    ],
-   "layout": "2-panels-tree",
+   "layout": "1-panel",
    "path": [],
    "type": "markdown",
    "content-file": ".guides/content/Introduction-58ee.md",
@@ -40,7 +40,7 @@
      "action": "open"
     }
    ],
-   "layout": "",
+   "layout": "2-panels",
    "path": [],
    "type": "markdown",
    "content-file": ".guides/content/Experiments-3887.md",
@@ -56,7 +56,7 @@
      "action": "close"
     }
    ],
-   "layout": "",
+   "layout": "1-panel",
    "path": [],
    "type": "markdown",
    "content-file": ".guides/content/Overview-26b3.md",
@@ -89,7 +89,7 @@
      "action": "open"
     }
    ],
-   "layout": "",
+   "layout": "2-panels",
    "path": [
     "1-intro"
    ],
@@ -206,7 +206,7 @@
      "action": "open"
     }
    ],
-   "layout": "2-panels-tree",
+   "layout": "",
    "path": [
     "challenge1"
    ],
@@ -229,12 +229,22 @@
      "action": "open"
     }
    ],
-   "layout": "2-panels-tree",
+   "layout": "",
    "path": [
     "challenge2"
    ],
    "type": "markdown",
    "content-file": ".guides/content/Write-escape-sequence-69fc.md",
+   "chapter": false,
+   "reset": []
+  },
+  {
+   "id": "36a9e90d-c09f-7e6f-e2b0-aa68e70d477",
+   "title": "All done!!",
+   "files": [],
+   "path": [],
+   "type": "markdown",
+   "content-file": ".guides/content/New-Section-14-36a9.md",
    "chapter": false,
    "reset": []
   }
