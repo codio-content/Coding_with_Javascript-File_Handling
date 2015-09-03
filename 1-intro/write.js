@@ -1,3 +1,4 @@
+
 // First, create a 2D array
 array = []
 rows = 5
@@ -9,7 +10,8 @@ for ( i=0; i < rows; i++ ) {
     array[i][j] = i + ':' + j
   }
 }
-console.log(array)
+
+output(array)
 
 // Build a single string
 for ( i=0, str=''; i < rows; i++ ) {
@@ -27,4 +29,4 @@ for ( i=0, str=''; i < rows; i++ ) {
 
 // Write the string to file
 fs = require('fs')
-fs.writeFile("write-demo.csv", str)
+fs.writeFileSync("write-demo.csv", str)

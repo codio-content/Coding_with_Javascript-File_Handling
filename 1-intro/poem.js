@@ -1,3 +1,4 @@
+
 // This creates a special variable for reading files
 fs = require('fs')
 
@@ -5,5 +6,4 @@ fs = require('fs')
 data = fs.readFileSync('./1-intro/poem.txt').toString()
 
 // Display it in the console
-console.log(data)
-
+output(data)

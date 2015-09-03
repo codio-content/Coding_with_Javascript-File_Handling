@@ -1,2 +1,2 @@
 cd /home/codio/workspace/1-intro
-node read2.js
+node ../run-user.js read2.js

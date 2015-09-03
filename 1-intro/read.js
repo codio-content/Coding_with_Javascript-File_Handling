@@ -1,3 +1,4 @@
+
 // This creates a special variable for reading files
 fs = require('fs')
 
@@ -5,5 +6,4 @@ fs = require('fs')
 data = fs.readFileSync('data.csv').toString()
 
 // Show the data in the console
-console.log(data)
-
+output(data)
