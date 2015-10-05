@@ -14,9 +14,7 @@ var test = {
         output.push(val);
       },
       require: require,
-      console: {
-        log: console.log.bind(console)
-      }      
+      console: console     
     }
 
     for (var i = 0; i < argv.length; i++) {
