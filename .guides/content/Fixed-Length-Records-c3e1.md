@@ -8,4 +8,7 @@ Our file would look like this:
 `Theodore________Anderson________03201990`
 `Monty___________Biscuit-Barrel__10181980`
 
-Challenge: we will pass the filename P, firstname F, lastname L, and a new birthday B. Load the fixed length record file in P, search for F,L in the first and change birthday to B. Then save the file.
+*Note that there are no newline characters at the end of the records. It is split up here so we can read it.*
+
+{Check It!|assessment}(test-1456892332)
+

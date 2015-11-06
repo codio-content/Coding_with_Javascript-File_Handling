@@ -1,3 +1,5 @@
+Over the years there have been a number of different strategies for figuring out the format of a file. Here are a few that are still in common use today.
+
 Extensions
 ----
 On some systems, the filename itself is used to provide a clue as to the format of the file. In particular, the *extension* on the end of a file (“.txt”, “.mp3”, “.doc”, and etc) has traditionally been used to identify the format into which a file is expected to be organized.

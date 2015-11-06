@@ -238,7 +238,18 @@
   {
    "id": "c3e1d8de-1947-822c-fddc-60577539eff",
    "title": "Fixed Length Records",
-   "files": [],
+   "files": [
+    {
+     "path": "#tabs",
+     "action": "close"
+    },
+    {
+     "path": "challenges/fixed-length-record.js",
+     "panel": 0,
+     "action": "open"
+    }
+   ],
+   "layout": "2-panels",
    "path": [],
    "type": "markdown",
    "content-file": ".guides/content/Fixed-Length-Records-c3e1.md",

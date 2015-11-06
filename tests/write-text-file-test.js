@@ -11,12 +11,15 @@ function replaceString(path, o, n){
 }
 
 function buildTest(pathi, patho, find, replace){
+  var safeOutputPath= '/tmp/' + patho.replace(/\W/g, '')
+  fs.unlink(safeOutputPath);
+  
 	var correctOutput= replaceString(pathi, find, replace);
 	return {
-		inputs: [pathi, patho, find, replace],
+		inputs: [pathi, safeOutputPath, find, replace],
 		outputs: [],
     validate: function(i){
-      var actualOutput= fs.readFileSync(patho, "utf8", "r");
+      var actualOutput= fs.readFileSync(safeOutputPath, "utf8", "r");
       var resultAsExpected= correctOutput == actualOutput;
       return resultAsExpected;
 		}
@@ -27,7 +30,7 @@ var cpath= 'content/textfiles';
 
 
 test.tests(script, [
-	buildTest(cpath+'/parrot.txt', '/tmp/write1.txt', 'parrot', 'chicken'),
-	buildTest(cpath+'/empty.txt', '/tmp/write2.txt', 'parrot', 'chicken'),
-	buildTest(cpath+'/parrot.txt', '/tmp/write3.txt', 'fungi', 'Patang')
+	buildTest(cpath+'/parrot.txt', 'write1', 'parrot', 'chicken'),
+	buildTest(cpath+'/empty.txt', 'write2', 'parrot', 'chicken'),
+	buildTest(cpath+'/parrot.txt', 'write3', 'fungi', 'Patang')
 ]);
