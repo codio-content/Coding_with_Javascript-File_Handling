@@ -1,3 +1,12 @@
+Challenge: write f1(N,A) that stores array A by the name N in its own file, and f2(N) which retrieves A.
+
+{Run the code}(/home/codio/workspace/ch-write.sh)
+
+{Check It!|assessment}(test-808628205)
+
+|||guidance
+### Solution
+```javascript
 
 // First, create a 2D array
 input0 = [ ['one', 1], ['Two', 2], [3,3] ];
@@ -44,3 +53,6 @@ for ( i=0, str=''; i < input0.length; i++ ) {
 // Write the string to file
 fs = require('fs')
 fs.writeFileSync("data.csv", str)
+
+```
+|||

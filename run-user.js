@@ -4,6 +4,10 @@ var fs = require('fs');
 
 var data;
 
+//
+// Read in the code to execute in a seperate VM. This is passed from the text of the
+// button in the content.
+//
 try {
   data = fs.readFileSync(process.argv[2], 'UTF-8');
 }
@@ -12,20 +16,37 @@ catch(e) {
   process.exit(1)
 }
 
+//
+// Create an artificial command line argument array
+//
+var mockargv= ['javascript'].concat(process.argv.slice(2));
+
+//
+// This is the sandbox "scoping" context we will use to run the seperate VM in which
+// to process the test code.
+//
 var scope = {
   output: function(val) {
+    console.log("**** STILL USING OUTPUT ****");
     console.log(val);
   },
-  require: require,
-  console: {
-    log: console.log.bind(console)
-  }
+  process: {
+    argv: mockargv // process.argv
+  },
+  require:require,
+  console: console
 }
 
+//
+// Run the test code in a new context, but in this VM.
+//
 try {
   vm.runInNewContext(data, scope)
 }
 catch(e) {
+  //
+  // There was a problem, so lint out the issues and present them to the user.
+  //
   var msg = '';
 
   var CLIEngine = require("eslint").CLIEngine;
