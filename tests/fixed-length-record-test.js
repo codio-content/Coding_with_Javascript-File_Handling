@@ -11,14 +11,15 @@ function padString(text, padCount){
 
 function buildTest(pathi, patho, firstname, lastname, bday){
   var safeOutputPath= '/tmp/' + patho.replace(/\W/g, '')
-  fs.unlink(safeOutputPath);
+  console.info("IN["+ pathi +"]")
+  
   var startingData= fs.readFileSync(pathi, 'utf8')
-  fs.writeFileSync(startingData, safeOutputPath, 'utf8')
+  fs.writeFileSync(safeOutputPath, startingData, 'utf8')
   
   var pf= padString(firstname, 16)
   var pl= padString(lastname, 16)
-  var re= new RegExp(pf+pl+"(........)")
-	var correctOutput= startingData.replace(re, bday)
+  var re= new RegExp(pf+pl+"........")
+	var correctOutput= startingData.replace(re, pf+pl+bday)
   
 	return {
 		inputs: [safeOutputPath, firstname, lastname, bday],
@@ -37,5 +38,5 @@ var cpath= 'content/textfiles';
 
 test.tests(script, [
 	buildTest(cpath+'/fixed-length.txt', 'fixed1', 'Adam', 'Smith', '12121912'),
-	buildTest(cpath+'/empty.txt', 'fixed2', 'Adam', 'Smith', '11111111')
+	buildTest(cpath+'/poem.txt', 'fixed2', 'Adam', 'Smith', '11111111')
 ]);
