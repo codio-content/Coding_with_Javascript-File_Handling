@@ -8,6 +8,4 @@ var L= process.argv[4]
 var B= process.argv[5]
 
 // Your code goes here
-console.info("Student Reading: " + P)
-var data= fs.readFileSync(P, 'utf8')
 

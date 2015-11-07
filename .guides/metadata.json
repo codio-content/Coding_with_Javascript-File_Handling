@@ -266,7 +266,7 @@
      "action": "close"
     },
     {
-     "path": "challenge1/read-escaped.js",
+     "path": "challenges/variable-length.js",
      "panel": 0,
      "action": "open"
     }

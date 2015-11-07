@@ -5,10 +5,7 @@ Since we do not use the “|” (pipe) character in normal sentences, it is a co
 
 Challenge: read a 2d array from a pipe delimited file, operate on the arrays, and write the file back out. 
 
-
-{Run the code}(/home/codio/workspace/ch-read.sh)
-
-{Check It!|assessment}(test-3353555413)
+{Check It!|assessment}(test-2358046206)
 
 
 |||guidance
@@ -18,30 +15,6 @@ Challenge: read a 2d array from a pipe delimited file, operate on the arrays, an
 // This creates a special variable for reading files
 fs = require('fs')
 
-// Read in the data from our file
-data = fs.readFileSync('data.csv').toString()
 
-// Split our string into rows based on the new line character
-rows = data.split('\n')
-
-// Now process the rows array
-for ( i=0, cols = []; i<rows.length; i++, cols = [] ) {
-  
-  // Split the current row, which is a single line from the file
-  cols = rows[i].split(',')
-  
-  // Now replace the '|c' with ','
-  for ( j=0; j<cols.length; j++) {
-    if ( isNaN( cols[j]) ) {
-      cols[j] = cols[j].replace('|c', ',')
-    }
-    else {
-      cols[j] = parseFloat(cols[j])
-    }
-  }
-  rows[i] = cols
-}
-
-output(rows)
 ```
 |||
