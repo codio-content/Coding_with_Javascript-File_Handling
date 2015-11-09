@@ -20,5 +20,62 @@ To help out a bit, here is a function called `join()` which can performed on any
 ### Solution
 ```javascript
 
+//
+// Create a function that turns pipe-delimited strings 
+// into 2d arrays
+// 
+function pipe2a(text){
+  var records= text.split("\n")
+  for(var i=0; i < records.length; i++){
+    records[i]= records[i].split("|")
+  }
+  return records
+}
+
+//
+// Create a function that turns 2d arrays into 
+// pipe-delimited strings.
+// 
+function a2pipe(a){
+  var text= ""
+  for(var i=0; i < a.length; i++){
+    var record= a[i]
+    text+= record.join("|") + "\n"
+  }
+  return text;
+}
+
+// 
+// Read in the accounts and transactions
+// 
+var accounts= pipe2a(fs.readFileSync(F1, 'utf8'))
+var transactions= pipe2a(fs.readFileSync(F2, 'utf8'))
+
+// for each transaction
+for(var transactionIndex=0; transactionIndex < transactions.length; transactionIndex++){
+  var transaction= transactions[transactionIndex]
+
+  // look for the matching account
+  var accountFound= false
+  for(var accountIndex=0; !accountFound && accountIndex < accounts.length; accountIndex++){
+    var account= accounts[accountIndex]
+    var balance= parseInt(account[2])
+    var change= parseInt(transaction[1])
+
+    if(account[0] == transaction[2]){
+      accountFound= true;
+      if(account[1] == transaction[3]){
+        if(transaction[0] == 'add'){
+          accounts[accountIndex][2]= balance + change 
+        } else if (transaction[0] == 'sub' && change <= balance){
+          accounts[accountIndex][2]= balance - change           
+        }
+      }
+    }
+  }
+}
+
+// Write the answer
+fs.writeFileSync(F1, a2pipe(accounts), 'utf8')
 ```
 |||

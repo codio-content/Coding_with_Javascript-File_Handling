@@ -290,7 +290,7 @@
      "action": "close"
     },
     {
-     "path": "challenge2/write-escaped.js",
+     "path": "challenges/bank-transactions.js",
      "panel": 0,
      "action": "open"
     }
@@ -308,7 +308,13 @@
   {
    "id": "36a9e90d-c09f-7e6f-e2b0-aa68e70d477",
    "title": "All done!!",
-   "files": [],
+   "files": [
+    {
+     "path": "#tabs",
+     "action": "close"
+    }
+   ],
+   "layout": "1-panel",
    "path": [],
    "type": "markdown",
    "content-file": ".guides/content/All-done---36a9.md",

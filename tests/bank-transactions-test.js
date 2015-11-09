@@ -6,13 +6,14 @@ function copyFileToFile(src, dst){
 }
 
 function loadAccounts(pathToAccounts){
-  var text= fs.readFileSync(pathToAccounts, 'utf8')
+  var text= fs.readFileSync(pathToAccounts, 'utf8').trim()
   var accounts= text.split("\n").map(function(n){ return n.split("|"); });
+  accounts= accounts.filter(function(n){ return (n && n.length > 0) })
   return accounts;
 }
 
 function loadTransactions(pathToTransactions){
-  var text= fs.readFileSync(pathToTransactions, 'utf8');
+  var text= fs.readFileSync(pathToTransactions, 'utf8').trim()
   var tx= text.split("\n").map(function(n) { return n.split("|") })
   return tx;
 }
@@ -36,64 +37,54 @@ function generateTestTransactions(pathToAccounts, pathToTransactions){
     a= accounts[17 % accounts.length];               // semi random selection
     result.push(['add', 1000, a[0], a[1]]);          // add some
     result.push(['add', 1000, a[0] + '9999', a[1]]); // bad acct
-    
-    result.push(['sub', a[2] + 100, a[0], a[1]]);    // bad sub
+    result.push(['sub', +a[2] + +100, a[0], a[1]]);  // bad sub
   }
   
   var out= a2dToPipeDelim(result);
-  //console.info("Gen TX:");
-  //console.info(out);
-  //console.info("--------");
   
   fs.writeFileSync(pathToTransactions, out, 'utf8');
 }
 
-function processTransaction(accounts, transaction){
-  for(var i=0; i < accounts.length; i++){
-    if(accounts[i][0] == transaction[2] && accounts[i][1] == transaction[3]){
-      //console.info(["TX", accounts[i], transaction])
-      if(transaction[0] == 'add'){
-        accounts[i][2]= +accounts[i][2] + +transaction[1];
-      } else if(transaction[0] == 'sub'){
-        if(+accounts[i][2] - +transaction[1] >= 0){
-          accounts[i][2]= +accounts[i][2] - +transaction[1];
-        }
-      } else {
-        //console.info("BAD ARG");
-      }
-      //console.info(["POST", accounts[i]])
-    }
-  }
-  return accounts;
-}
-
-function processTransactions(accounts, transactions){
-  for(var i=0; i < transactions.length; i++){
-    accounts= processTransaction(accounts, transactions[i]);
-  }
-  return accounts;
-}
-
-function buildTest(pathAccounts, tmpFilename){
-  var F1= '/tmp/f1';
-  var F2= '/tmp/f2-' + tmpFilename;
+function buildTest(pathAccounts, tmpFilenameIn, tmpFilenameOut){
+  var F1= '/tmp/f1-' + tmpFilenameIn;
+  var F2= '/tmp/f2-' + tmpFilenameOut;
   
   copyFileToFile(pathAccounts, F1);
   generateTestTransactions(F1, F2);
   
-  var accounts= processTransactions(loadAccounts(F1), loadTransactions(F2));
+  
+  var accounts= loadAccounts(F1);
+  var transactions= loadTransactions(F2);
+  
+  accounts= accounts.map(function(account){
+    var currentBalance= parseInt(account[2]);
+    transactions.forEach(function(transaction){
+      if(transaction[2] == account[0] && transaction[3] == account[1]){
+        var prebal= currentBalance;
+        var delta= parseInt(transaction[1]);
+        if(transaction[0] == 'add'){
+          currentBalance= currentBalance + delta;
+        } else if(transaction[0] == 'sub' && delta <= currentBalance) {
+          currentBalance= currentBalance - delta;
+        }
+      }
+    });
+    account[2]= currentBalance;
+    return account;
+  });
+  
 	var correctOutput= a2dToPipeDelim(accounts);
   
   return {
 		inputs: [F1, F2],
 		outputs: [],
     validate: function(i){
-      var actualOutput= fs.readFileSync(i.inputs[0], "utf8").replace(/\s\s*$/, '');
+      var actualOutput= a2dToPipeDelim(loadAccounts(i.inputs[0]))
+      //var actualOutput= fs.readFileSync(i.inputs[0], "utf8").replace(/\s\s*$/, '');
       var resultAsExpected= correctOutput == actualOutput;
-      if(true || !resultAsExpected){
-        console.info("ACTUAL\n" + actualOutput)
-        console.info("CORRECT\n" + correctOutput)
-        console.info("LOCAL: " + actualOutput.localeCompare(correctOutput))
+      if(!resultAsExpected){
+        console.info("You gave:\n" + actualOutput)
+        console.info("Expected:\n" + correctOutput)
       }
       return resultAsExpected;
 		}
@@ -105,7 +96,7 @@ var script = 'challenges/bank-transactions.js';
 var cpath= 'content/textfiles';
 
 test.tests(script, [
-	buildTest(cpath+'/accounts.txt', 'tx1'),
-	buildTest(cpath+'/accounts.txt', 'tx2'),
-	buildTest(cpath+'/accounts.txt', 'tx3')
+	buildTest(cpath+'/accounts.txt', 'a1', 'tx1'),
+	buildTest(cpath+'/accounts.txt', 'a2', 'tx2'),
+	buildTest(cpath+'/accounts.txt', 'a3', 'tx3')
 ]);
