@@ -7,20 +7,19 @@ function buildTest(pathi, patho, firstname, lastname, bday){
   var startingData= fs.readFileSync(pathi, 'utf8')
   fs.writeFileSync(safeOutputPath, startingData, 'utf8')
   
-  var re= new RegExp(firstname+'|'+lastname+'|'+"........")
-	var correctOutput= startingData.replace(re, firstname+'|'+lastname+'|'+bday)
-  
+  var regx= firstname+"[|]"+lastname+"[|]"+"\\d{8}";
+  var re= new RegExp(regx);
+	var correctOutput= startingData.replace(re, firstname+'|'+lastname+'|'+bday).replace(/\s\s*$/, '')
 	return {
 		inputs: [safeOutputPath, firstname, lastname, bday],
 		outputs: [],
     validate: function(i){
-      //console.info("VAL: " + i.inputs[0])
-      //console.info(i)
-      var actualOutput= fs.readFileSync(i.inputs[0], "utf8");
+      var actualOutput= fs.readFileSync(i.inputs[0], "utf8").replace(/\s\s*$/, '');
       var resultAsExpected= correctOutput == actualOutput;
       if(!resultAsExpected){
         console.info("ACTUAL\n" + actualOutput)
         console.info("CORRECT\n" + correctOutput)
+        console.info("LOCAL: " + actualOutput.localeCompare(correctOutput))
       }
       return resultAsExpected;
 		}
@@ -32,6 +31,6 @@ var script = 'challenges/variable-length.js';
 var cpath= 'content/textfiles';
 
 test.tests(script, [
-	buildTest(cpath+'/pipe.txt', 'fixed1', 'Adam', 'Smith', '12121912'),
-	buildTest(cpath+'/poem.txt', 'fixed2', 'Adam', 'Smith', '11111111')
+	buildTest(cpath+'/pipe.txt', 'vlength1', 'Adam', 'Smith', '02022222'),
+	buildTest(cpath+'/pipe.txt', 'vlength2', 'Adam K', 'Smith', '11111111')
 ]);

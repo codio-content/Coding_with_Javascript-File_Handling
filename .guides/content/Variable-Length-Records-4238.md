@@ -11,10 +11,51 @@ Challenge: read a 2d array from a pipe delimited file, operate on the arrays, an
 |||guidance
 ### Solution
 ```javascript
+// Load the file system library
+var fs = require('fs')             
 
-// This creates a special variable for reading files
-fs = require('fs')
+// Get the filepath from the command line
+var P= process.argv[2] 
+var F= process.argv[3]
+var L= process.argv[4]
+var B= process.argv[5]
 
+// Your code goes here
+
+var data= fs.readFileSync(P, 'utf8')
+var output= ""
+
+// Loop through each line in the data
+var records= data.split('\n')
+
+for(var i=0; i < records.length; i++){
+  var record= records[i]
+  //console.info("RECORD")
+  //console.info(record)
+  
+  // the record fields are separated with the '|' character
+  var parts= record.split('|')
+  var firstname= parts[0]
+  var lastname= parts[1]
+  var birthday= parts[2]
+  //console.info(parts.join(':'))
+  
+  output= output + firstname + '|' + lastname + '|'
+    
+  // Is this the record we are looking for?
+  if(firstname == F && lastname == L){
+    // This is a match. Output the new brithday in B...
+    output= output + B
+  } else {
+    // This is not the record we are looking for...
+    output= output + birthday
+  }
+  
+  output= output + '\n'
+}
+
+// Write out the output
+fs.writeFileSync(P, output, 'utf8')
 
 ```
 |||
