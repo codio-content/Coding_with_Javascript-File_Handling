@@ -19,6 +19,15 @@ To help out a bit, here is a function called `join()` which can performed on any
 |||guidance
 ### Solution
 ```javascript
+// Load the file system library
+var fs = require('fs')             
+
+// Get the filepath from the command line
+var F1= process.argv[2] 
+var F2= process.argv[3]
+
+// Your code goes here
+
 
 //
 // Create a function that turns pipe-delimited strings 
@@ -45,37 +54,33 @@ function a2pipe(a){
   return text;
 }
 
-// 
 // Read in the accounts and transactions
-// 
 var accounts= pipe2a(fs.readFileSync(F1, 'utf8'))
 var transactions= pipe2a(fs.readFileSync(F2, 'utf8'))
 
 // for each transaction
 for(var transactionIndex=0; transactionIndex < transactions.length; transactionIndex++){
   var transaction= transactions[transactionIndex]
-
   // look for the matching account
   var accountFound= false
   for(var accountIndex=0; !accountFound && accountIndex < accounts.length; accountIndex++){
     var account= accounts[accountIndex]
     var balance= parseInt(account[2])
-    var change= parseInt(transaction[1])
-
+    var transactionAmount= parseInt(transaction[1])
     if(account[0] == transaction[2]){
       accountFound= true;
       if(account[1] == transaction[3]){
         if(transaction[0] == 'add'){
-          accounts[accountIndex][2]= balance + change 
+          accounts[accountIndex][2]= balance + transactionAmount 
         } else if (transaction[0] == 'sub' && change <= balance){
-          accounts[accountIndex][2]= balance - change           
+          accounts[accountIndex][2]= balance - transactionAmount           
         }
       }
     }
   }
 }
 
-// Write the answer
+// Write the answer back out to the original file
 fs.writeFileSync(F1, a2pipe(accounts), 'utf8')
 ```
 |||
