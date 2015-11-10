@@ -64,9 +64,7 @@
    "type": "markdown",
    "content-file": ".guides/content/File-Names-26b3.md",
    "chapter": true,
-   "reset": [
-    "1-intro"
-   ],
+   "reset": [],
    "teacherOnly": false
   },
   {
@@ -272,9 +270,7 @@
     }
    ],
    "layout": "2-panels",
-   "path": [
-    "challenge1"
-   ],
+   "path": [],
    "type": "markdown",
    "content-file": ".guides/content/Variable-Length-Records-4238.md",
    "chapter": false,
@@ -296,9 +292,7 @@
     }
    ],
    "layout": "",
-   "path": [
-    "challenge2"
-   ],
+   "path": [],
    "type": "markdown",
    "content-file": ".guides/content/Final-Challenge-69fc.md",
    "chapter": false,
