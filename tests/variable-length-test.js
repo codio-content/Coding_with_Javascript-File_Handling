@@ -16,11 +16,11 @@ function buildTest(pathi, patho, firstname, lastname, bday){
     validate: function(i){
       var actualOutput= fs.readFileSync(i.inputs[0], "utf8").replace(/\s\s*$/, '');
       var resultAsExpected= correctOutput == actualOutput;
-      if(!resultAsExpected){
-        console.info("ACTUAL\n" + actualOutput)
-        console.info("CORRECT\n" + correctOutput)
-        console.info("LOCAL: " + actualOutput.localeCompare(correctOutput))
-      }
+      //if(!resultAsExpected){
+      //  console.info("ACTUAL\n" + actualOutput)
+      //  console.info("CORRECT\n" + correctOutput)
+      //  console.info("LOCAL: " + actualOutput.localeCompare(correctOutput))
+      //}
       return resultAsExpected;
 		}
 	}

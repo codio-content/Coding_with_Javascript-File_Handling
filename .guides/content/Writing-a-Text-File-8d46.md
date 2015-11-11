@@ -23,15 +23,15 @@ fs.writeFileSync(path, text, ‘utf8’);
 fs = require('fs')             
 
 // Get the filepath from the command line
-var inputPath= process.argv[2] 
-var outputPath= process.argv[3] 
+var I= process.argv[2] 
+var O= process.argv[3] 
 var S= process.argv[4]
 var T= process.argv[5]
 
 // Your code goes here
 
-// Load the data from the inputPath
-var filedata= fs.readFileSync(inputPath, 'utf8', 'r')
+// Load the data from the input path
+var filedata= fs.readFileSync(I, 'utf8', 'r')
 
 // Create a variable to hold our output while we build it
 var output= ""
@@ -48,6 +48,6 @@ while(positionS >= 0) {
 output+= filedata
 
 // Write out the contents.
-fs.writeFileSync(outputPath, output, 'utf8');  
+fs.writeFileSync(O, output, 'utf8');  
 ```
 |||

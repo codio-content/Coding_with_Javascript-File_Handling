@@ -33,6 +33,7 @@ var test = {
     var normalConsoleLogFunction= console.log;
     scope.console.log= function(val){
       output.push(val);
+      normalConsoleLogFunction(val)
     }
 
 

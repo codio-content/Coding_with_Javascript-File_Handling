@@ -82,10 +82,10 @@ function buildTest(pathAccounts, tmpFilenameIn, tmpFilenameOut){
       var actualOutput= a2dToPipeDelim(loadAccounts(i.inputs[0]))
       //var actualOutput= fs.readFileSync(i.inputs[0], "utf8").replace(/\s\s*$/, '');
       var resultAsExpected= correctOutput == actualOutput;
-      if(!resultAsExpected){
-        console.info("You gave:\n" + actualOutput)
-        console.info("Expected:\n" + correctOutput)
-      }
+      //if(!resultAsExpected){
+      //  console.info("You gave:\n" + actualOutput)
+      //  console.info("Expected:\n" + correctOutput)
+      //}
       return resultAsExpected;
 		}
 	}
