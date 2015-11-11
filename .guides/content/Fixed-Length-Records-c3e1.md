@@ -10,7 +10,19 @@ Our file would look like this:
 
 Note that there are no newline characters at the end of the records. It is split up here so we can read it.
 
-**Hint:** you might find the `trim()` function helpful. It removes whitespace from the front and end of a string.
+### The `String.trim()` Function
+----
+You might find the `trim()` function helpful. It removes whitespace from the front and end of a string.
+
+```javascript
+var text= '  Words   Other   Words\tTab   '
+console.log(':' + text + ':')
+text= text.trim()
+console.log(':' + text + ':')
+```
+{Run the code}(node content/trim.js)
+
+
 
 {Check It!|assessment}(test-1456892332)
 
