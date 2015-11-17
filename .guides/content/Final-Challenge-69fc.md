@@ -72,7 +72,7 @@ for(var transactionIndex=0; transactionIndex < transactions.length; transactionI
       if(account[1] == transaction[3]){
         if(transaction[0] == 'add'){
           accounts[accountIndex][2]= balance + transactionAmount 
-        } else if (transaction[0] == 'sub' && change <= balance){
+        } else if (transaction[0] == 'sub' && transactionAmount <= balance){
           accounts[accountIndex][2]= balance - transactionAmount           
         }
       }

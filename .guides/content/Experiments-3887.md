@@ -1,3 +1,3 @@
 Use the code on this page to experiment.
 
-{Run the code}(node run-user.js experiment.js)
+{Run the code}(node experiment.js)
