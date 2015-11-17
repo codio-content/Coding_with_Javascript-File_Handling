@@ -48,6 +48,6 @@ while(positionS >= 0) {
 output+= filedata
 
 // Write out the contents.
-fs.writeFileSync(O, output, 'utf8');  
+fs.writeFileSync(O, output, 'utf8')
 ```
 |||

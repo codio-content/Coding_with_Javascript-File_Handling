@@ -12,7 +12,7 @@ function onetest () {
   I=${1}
   S=${2}
   T=${3}
-  rm /tmp/o1
+  rm -f /tmp/o1
   cp ${I} /tmp/i1
   cat /tmp/i1 | sed -E s/${S}/${T}/g > /tmp/e1
   run_js_test "/tmp/i1 /tmp/o1 ${S} ${T}" ''
