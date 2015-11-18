@@ -1,8 +1,10 @@
-Another way to store data is called a *variable length record*. Instead of using a set amount of space for fields and records, it stores only what is needed. This saves space and allows for storing much longer records.
+Another way to store data is called a *variable length record*. Instead of using a set amount of space for fields and records, it stores only what is needed. This saves space and allows for storing much longer records, though it is slightly more complex to read.
 
 Field Delimited Data
 ----
 Since we do not use the “|” (pipe) character in normal sentences, it is a commonly used character to delimit fields in a variable length record. These are called “pipe delimited” files are they have the constraint that no pipe characters can occur in the data. Usually each record is one line long (newline delimited) and each field is separated by a pipe character.
+
+
 
 Hints:
 ----
@@ -18,7 +20,7 @@ list= ['a', 'b', 'c']
 delimiter= ':'
 console.log(list.join(delimiter))
 ```
-{Run the code}(node content/join.js)
+{Run the join sample}(node content/join.js)
 
 ### The String.split() function
 There is another function called `split()` that you may find will help you. 
@@ -29,107 +31,24 @@ delimiter= ':'
 list= text.split(delimiter)
 console.log(list)
 ```
-{Run the code}(node content/split.js)
+{Run the split sample}(node content/split.js)
 
-
-
-
-
-{Check It!|assessment}(test-2358046206)
-
-|||guidance
-### Solution
+Sample Program:
+----
+Now look at the sample provided that manages a simple pipe delimited string. It uses functions in the program. It also uses the `split()` function to convert pipe delimited strings into lists:
 ```javascript
-// Load the file system library
-var fs = require('fs')             
-
-// Get the filepath from the command line
-var P= process.argv[2] 
-var F= process.argv[3]
-var L= process.argv[4]
-var B= process.argv[5]
-
-// ----------------------------------------------------------------
-// 
-// Our Helper functions:
-// 
-// ----------------------------------------------------------------
-
-//
-// Loads the file at filepath 
-// Returns a 2d array with the data
-// 
-function load2dArrayFromFile(filepath){
-  // Your code goes here:
-  var text= fs.readFileSync(filepath, 'utf8')
-  var records= text.split("\n")
-  for(var i=0; i < records.length; i++){
-    records[i]= records[i].split("|")
-  }
-  return records
-}
-
-//
-// Searches the 2d array 'records' for firstname, lastname.
-// Returns the index of the record or -1 if no record exists
-// 
-function findIndex(records, firstname, lastname){
-  // Your code goes here:
-  for(var i=0; i < records.length; i++){
-    if(records[i][0] == firstname && records[i][1] == lastname){
-      return i
-    }
-  }
-  return -1
-}
-
-// Sets the birthday of the record at the given index
-// Returns: nothing
-function setBirthday(records, index, newBirthday){
-  // Your code goes here:
-  if(index >= 0 && index < records.length){
-    records[index][2]= newBirthday
-  }
-}
-
-// Convert one record into a pipe-delimited string
-function makeLineFromRecord(record){
-  // Your code goes here:
-  return record.join("|");
-}
-
-// Convert the 2d array back into a string and return it
-function makeTextFrom2dArray(records){
-  // Your code goes here:
-  var lines= []
-  for(var i=0; i < records.length; i++){
-    lines.push(makeLineFromRecord(records[i]))
-  }
-  return lines.join("\n")
-}
-
-// ----------------------------------------------------------------
-// 
-//  Our main code body, where we call our functions.
-//  
-// ----------------------------------------------------------------
-
-// Load our records from the file into a 2d array
-var records= load2dArrayFromFile(P)
-
-// Find out which index, if any, has the name we are hunting
-var indexWeAreHunting= findIndex(records, F, L)
-
-// Set the birthday record to the one we were passed
-setBirthday(records, indexWeAreHunting, B)
-
-// Convert the records into a text string
-var output= makeTextFrom2dArray(records)
-
-// write the text string out to the file
-fs.writeFileSync(P, output, 'utf8')
-
-
-
+6  function getListFromPipeDelimitedText(pipeDelimitedText) {
+7    var recordList= pipeDelimitedText.split('|')
+8    return recordList
+9  }
 ```
-|||
+It also uses the `join()` function to convert lists into pipe delimited strings:
+```javascript
+12  function getPipeDelimitedTextFromList(recordList){
+13    return recordList.join('|')
+14  }
+```
+
+{Run the Pipe Sample}(node content/pipe-split.js)
+
+These should help you with the next challenge.

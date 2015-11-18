@@ -2,7 +2,7 @@
 var fs= require('fs')
 
 // Get the pathname from the command line
-var pathname= process.argv[2]
+var pathname= 'content/textfiles/poem.txt'
 
 // Flags tell the library what kind of access we need
 var flags= "r" // read only

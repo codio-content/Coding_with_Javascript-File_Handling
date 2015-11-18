@@ -1,38 +1,26 @@
-// ----------------------------------------------------------------
-// Example of opening a file and then closing it
-// 
+var fs= require('fs')
+var pathA= 'content/textfiles/poem.txt'
+var pathB= 'content/textfiles/cheese.txt'
+var pathC= 'content/textfiles/fixed-length.txt'
 
-var fs= require('fs')               // open the file system library
-var path1= process.argv[2]          // the pathname to some file
-var path2= process.argv[3]          // the pathname to some file
-var path3= process.argv[4]          // the pathname to some file
+// Open first 2 files (A and B)
+var fileDescriptorA= fs.openSync(pathA, 'r')  
+var fileDescriptorB= fs.openSync(pathB, 'r')
 
-// ----------------------------------------------------------------
-// Open first 2 files
-// 
-console.log('Opening first file')
-var fd1= fs.openSync(path1, 'r')    // get file descriptor 1
-console.log('File Desc 1: '+fd1)    // print the fd number
+// show the file descriptor numbers
+console.log('File Desc A: '+fileDescriptorA)   
+console.log('File Desc B: '+fileDescriptorB) 
 
-console.log('Opening Second File')
-var fd2= fs.openSync(path2, 'r')    // get file descriptor 2
-console.log('File Desc 2: '+fd2)    // print the fd number
+// close file descriptor A
+fs.closeSync(fileDescriptorA)
+console.log('File Desc A ['+fileDescriptorA+'] is freed for reuse.')
 
-// ----------------------------------------------------------------
-// Close one file, to show that file descriptors are reused
-// when we open the next file.
-// 
-console.log('Closing First File')
-fs.closeSync(fd1)                   // close file 1, freeing fd1
+// open another file
+var fileDescriptorC= fs.openSync(pathC, 'r')
+console.log('File Desc C: '+fileDescriptorC)
 
-console.log('fd['+fd1+'] is free.')
-
-console.log('Opening Third File')
-var fd3= fs.openSync(path3, 'r')    // get file descriptor 3
-console.log('File Desc 3: '+fd3)    // print the fd number
-
-console.log('Closing remaining files.')
-fs.closeSync(fd2)                   // close the file by descriptor
-fs.closeSync(fd3)                   // close the file by descriptor
+// close remaining files to clean up
+fs.closeSync(fileDescriptorB)                   
+fs.closeSync(fileDescriptorC)
 
 
