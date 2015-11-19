@@ -25,7 +25,7 @@ console.log(list.join(delimiter))
 ### The String.split() function
 There is another function called `split()` that you may find will help you. 
 
-```python
+```javascript
 text= 'a:b:c:d'
 delimiter= ':'
 list= text.split(delimiter)

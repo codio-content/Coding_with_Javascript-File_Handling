@@ -330,7 +330,7 @@
      "action": "close"
     },
     {
-     "path": "challenges/variable-length.js",
+     "path": "content/pipe-split.js",
      "panel": 0,
      "action": "open"
     }
