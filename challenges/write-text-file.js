@@ -1,5 +1,5 @@
 // Load the file system library
-fs = require('fs')             
+var fs = require('fs')             
 
 // Command line
 var I= process.argv[2]  // input path

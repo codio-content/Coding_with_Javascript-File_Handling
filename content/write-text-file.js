@@ -1,5 +1,5 @@
 // load the library
-fs = require('fs') 
+var fs = require('fs') 
 
 // get the path to the file
 var filepath= '/tmp/out.txt'

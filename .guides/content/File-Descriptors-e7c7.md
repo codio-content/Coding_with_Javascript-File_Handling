@@ -15,4 +15,4 @@ Now, the “fs” variable can be used to access the file library. Note the way 
 9  var fileDescriptorB= fs.openSync(pathB, 'r')
 ```
 
-{Run Sample Code}(node content/textfiles/filedescriptors.js)
+{Run Sample Code}(node content/filedescriptors.js)

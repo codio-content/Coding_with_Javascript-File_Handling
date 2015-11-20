@@ -5,7 +5,7 @@ Most systems have more than one program running at a time. In order to ensure th
 9  var fileDescriptorB= fs.openSync(pathB, 'r')   // open file B
 ```
 
-{Run the code}(node content/textfiles/filedescriptors.js)
+{Run the code}(node content/filedescriptors.js)
 
 We hang on to the file descriptor `fd` so that we can use it later. The file descriptor can be used to read from the file, write to the file, and eventually close the file when we are done with it.
 
