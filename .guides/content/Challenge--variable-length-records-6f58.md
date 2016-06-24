@@ -1,4 +1,4 @@
-Fill in the **stubs** provided to complete the challenge. DO not forget what you have learned about splitting and joining strings and lists.
+Fill in the **stubs** provided to complete the challenge. Remember to use your new knowledge on splitting and joining strings and lists.
 
 {Check It!|assessment}(test-2358046206)
 

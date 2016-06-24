@@ -1,4 +1,4 @@
-For your final challenge of this Unit, we will load two files. The first file `F1` will have information about some accounts. It will be pipe-delimited and have one record per line, with these fields:
+For your final challenge in this unit, you will load two files. The first file `F1` will have information about some accounts. It will be pipe-delimited and have one record per line, with these fields:
 
 `ACCOUNT NUMBER | PIN CODE | BALANCE`
 
@@ -12,7 +12,7 @@ However, there are a number of reasons for which you may need to reject the tran
 
 
 ### The Array.join() function
-Don't forget about the join function from before: you will need it here to make pipe delimited lines.
+Don't forget the join function you learned about before: you will need it here to make pipe delimited lines.
 
 {Check It!|assessment}(test-1690867941)
 

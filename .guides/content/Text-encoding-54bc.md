@@ -1,4 +1,4 @@
-In order to read a text file, the **encoding type** or, *how the file was encoded* must be known. Once we know the *encoding type*, it is easy to convert the bytes of data in a file into text.
+In order to read a text file, the **encoding type** or, *how the file was encoded* must be known. Once you know the *encoding type*, it is easy to convert the bytes of data in a file to text.
 
 ASCII (1963)
 ----

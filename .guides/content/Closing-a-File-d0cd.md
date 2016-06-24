@@ -1,4 +1,4 @@
-To let the system know we are done with a file that we have opened, we need to close it. This signals that it is okay for other programs to use the file now.
+To let the system know we are do with a file that we have opened, we need to close it. This signals that it is okay for other programs to use the file now.
 
 ```javascript
 14  fs.closeSync(fileDescriptorA)
