@@ -1,0 +1,82 @@
+[
+ {
+  "type": "test",
+  "taskId": "test-1456892332",
+  "source": {
+   "showName": true,
+   "answers": [],
+   "tokens": {
+    "blank": [],
+    "text": []
+   },
+   "points": 1,
+   "command": "tests/fixed-length-record-test.sh",
+   "instructions": "You will be passed the filename `P`, firstname `F`, lastname `L`, and a new birthday `B`.\n\nLoad the fixed length record file in `P`, search for `F`,`L` in the first and change birthday to `B`. \n\nThen save the file.",
+   "name": "Fixed Length Records"
+  }
+ },
+ {
+  "type": "test",
+  "taskId": "test-1690867941",
+  "source": {
+   "showName": true,
+   "answers": [],
+   "tokens": {
+    "blank": [],
+    "text": []
+   },
+   "points": 1,
+   "command": "tests/bank-transactions-test.sh",
+   "instructions": "Given pipe-delimited files `F1` and `F2` where `F1` contains accounts with fields `ACCOUNT NUM|PIN|BALANCE` and `F2` contains transaction instructions `COMMAND|AMOUNT|ACCOUNT NUM|PIN`, execute the transactions, storing the results back in `F1`. \n\nThe `COMMAND` field will be `add` or `sub` indicating addition or subtraction from the account.\n\nTransactions which do not provide the correct `PIN` code or attempt to put the account below zero should be ignored.",
+   "name": "Account Transactions"
+  }
+ },
+ {
+  "type": "test",
+  "taskId": "test-2358046206",
+  "source": {
+   "showName": true,
+   "answers": [],
+   "tokens": {
+    "blank": [],
+    "text": []
+   },
+   "points": 1,
+   "command": "tests/variable-length-test.sh",
+   "instructions": "Load the pipe-delimited file `P`. It is organized with 3 fields on each line: `firstname|lastname|birthday`.\n\nSearch for the firstname `F` and lastname `L`, replacing the birthday with `B`. Write the file back out in the same pipe-delimited format.",
+   "name": "Variable Length Records"
+  }
+ },
+ {
+  "type": "test",
+  "taskId": "test-3353555413",
+  "source": {
+   "showName": false,
+   "answers": [],
+   "tokens": {
+    "blank": [],
+    "text": []
+   },
+   "name": "Read a Text File",
+   "instructions": "You will be passed a file path `P` and string `S` on the command line. Output the number of times the string `S` appears in the file `P`.",
+   "command": "tests/read-text-file-test.sh",
+   "points": 1
+  }
+ },
+ {
+  "type": "test",
+  "taskId": "test-808628205",
+  "source": {
+   "showName": false,
+   "answers": [],
+   "tokens": {
+    "blank": [],
+    "text": []
+   },
+   "name": "Writing a Text File",
+   "instructions": "You will be provided a file path for input `I`, a file path for output `O`, a string `S`, and a string `T`.\n\nRead the contents of `I`, replacing each occurrence of `S` with `T` and write the resulting information to file `O`. \n\nYou should replace `O` if it already exists.",
+   "command": "tests/write-text-file-test.sh",
+   "points": 1
+  }
+ }
+]
